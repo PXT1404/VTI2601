@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: NotifyService
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: pxtien2004
+    password: pxtien2004
+    virtual-host: /
+server:
+  port: 8580

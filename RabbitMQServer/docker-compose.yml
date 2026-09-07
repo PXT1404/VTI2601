@@ -1,0 +1,23 @@
+version: '3.8'
+
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672" # Cổng giao tiếp AMQP (dùng cho ứng dụng Spring)
+      - "15672:15672" # Cổng giao diện quản trị web
+    volumes:
+      - ./data:/var/lib/rabbitmq:rw # Lưu dữ liệu RabbitMQ (persistent)
+      - ./logs:/var/log/rabbitmq:rw # Lưu log RabbitMQ
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin # Tên đăng nhập mặc định
+      - RABBITMQ_DEFAULT_PASSWORD=admin # Mật khẩu mặc định
+    networks:
+      - spring-microservice
+
+
+networks:
+  spring-microservice:
+    external: true
