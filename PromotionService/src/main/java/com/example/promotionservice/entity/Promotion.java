@@ -20,6 +20,7 @@ public class Promotion {
     private String code;
 
     @Column(name = "discount_type")
+    @Enumerated(EnumType.STRING)
     private DiscountType discountType;
 
     @Column(name = "discount_value")

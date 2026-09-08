@@ -5,4 +5,5 @@ import com.example.promotionservice.entity.Promotion;
 
 public interface PromotionService {
     Promotion create (CreatePromotionDTO createPromotionDTO);
+    Promotion findByCode (String code);
 }

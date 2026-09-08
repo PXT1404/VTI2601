@@ -1,6 +1,7 @@
 package com.example.productservice.service.impl;
 
 import com.example.productservice.dto.request.CreateProductDTO;
+import com.example.productservice.dto.request.FindByIdDTO;
 import com.example.productservice.entity.Product;
 import com.example.productservice.repository.ProductRepository;
 import com.example.productservice.service.ProductService;
@@ -29,6 +30,13 @@ public class ProductServiceImpl implements ProductService {
         product.setPrice(request.getPrice());
         product.setStock(request.getStock());
         return productRepository.save(product);
+    }
+
+    @Override
+    public Product findById(String id) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy sản phẩm với id: " + id));
+        return product;
     }
 }
 

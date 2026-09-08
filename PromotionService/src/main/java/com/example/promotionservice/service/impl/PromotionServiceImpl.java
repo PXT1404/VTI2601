@@ -22,4 +22,13 @@ public class PromotionServiceImpl implements PromotionService {
         return promotionRepository.save(promotion);
     }
 
+    @Override
+    public Promotion findByCode(String code) {
+        Promotion promotion = promotionRepository.findByCode(code);
+        if (promotion == null) {
+            throw new RuntimeException("Không tìm thấy mã khuyến mãi: " + code);
+        }
+        return promotion;
+    }
+
 }

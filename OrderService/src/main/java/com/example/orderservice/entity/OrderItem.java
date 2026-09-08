@@ -31,5 +31,5 @@ public class OrderItem extends BaseEntity{
     private Double discount;
 
     @Column(name = "final_price")
-    private Double total;
+    private Double finalPrice;
 }

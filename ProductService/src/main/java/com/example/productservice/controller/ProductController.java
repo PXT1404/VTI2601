@@ -2,6 +2,7 @@ package com.example.productservice.controller;
 
 import com.example.productservice.common.BaseResponse;
 import com.example.productservice.dto.request.CreateProductDTO;
+import com.example.productservice.dto.request.FindByIdDTO;
 import com.example.productservice.entity.Product;
 import com.example.productservice.service.ProductService;
 import jakarta.validation.Valid;
@@ -9,10 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -27,5 +25,13 @@ public class ProductController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(new BaseResponse<>(response, "Created success"));
+    }
+
+    @GetMapping({"/{id}"})
+    public ResponseEntity<BaseResponse<Product>> findById (@PathVariable String id) {
+        Product response = productService.findById(id);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(new BaseResponse<>(response, "Found success"));
     }
 }

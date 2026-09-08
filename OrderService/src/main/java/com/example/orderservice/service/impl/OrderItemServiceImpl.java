@@ -33,7 +33,7 @@ public class OrderItemServiceImpl implements OrderItemService {
         // Gán trực tiếp vì Entity đang là Double
         orderItem.setPrice(createOrderItem.getPrice());
         orderItem.setDiscount(createOrderItem.getDiscount());
-        orderItem.setTotal(finalTotal);
+        orderItem.setFinalPrice(finalTotal);
 
         return orderItemRepository.save(orderItem);
     }

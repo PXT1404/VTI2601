@@ -1,4 +1,4 @@
-package com.example.orderservice.form;
+package com.example.productservice.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductFormForOrdering {
+public class FindByIdDTO {
     private String id;
-    private Integer quantity;
 }
